@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ToDo from './todo';
 import ToDoForm from './todoForm';
 import { Card, Button } from 'react-bootstrap';
+import ShareButton from 'react-web-share-button';
 
 class ToDoList extends Component {
     state = { todos: [] }
@@ -36,6 +37,7 @@ class ToDoList extends Component {
             <div className="container">
                 <Card style={{ width: '20rem', boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)" }}>
                     <ToDoForm onSubmit={this.addtoList} />
+                    <ShareButton title="My Great Page" text={this.state.todos.text} type="submit" url="http://www.greatpage.com" />                        
                     <ul class="list-group">
                         <ToDo todolist={this.state.todos} onChildDeleteClick={this.clickDelete} onChildEditClick={this.clickEdit} />
                     </ul>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Button } from 'react-bootstrap';
-import {  WhatsappShareButton,WhatsappIcon } from "react-share";
+import { WhatsappShareButton, WhatsappIcon } from "react-share";
 
 class ToDoForm extends Component {
     state = { todostring: '' };
