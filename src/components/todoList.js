@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ToDo from './todo';
-import ToDoForm from './todoForm'
+import ToDoForm from './todoForm';
+import { Card, Button } from 'react-bootstrap';
 
 class ToDoList extends Component {
     state = { todos: [] }
@@ -11,19 +12,19 @@ class ToDoList extends Component {
     }
 
     clickDelete = (id) => {
-        if (window.confirm('Are you sure you wish to delete this item?')) {
+        if (window.confirm('Are you sure you wish to delete this todo item?')) {
             this.setState({ todos: this.state.todos.filter(x => x.id !== id) });
         }
     }
 
     clickEdit = (index, id) => {
-        const value = prompt("Please enter your name:", this.state.todos[index].text);
+        const value = prompt("Please update your todo item:", this.state.todos[index].text);
         if (value === null) {
             return; //break out of the function early
         }
         const newtodos = this.state.todos.map(todo => {
             if (todo.id === id) {
-                todo.text = value.replace(/\s+/g,' ').trim();
+                todo.text = value.replace(/\s+/g, ' ').trim();
             }
             return todo;
         });
@@ -32,9 +33,13 @@ class ToDoList extends Component {
 
     render() {
         return (
-            <div>
-                <ToDoForm onSubmit={this.addtoList} />
-                <ToDo todolist={this.state.todos} onChildDeleteClick={this.clickDelete} onChildEditClick={this.clickEdit} />
+            <div className="container">
+                <Card style={{ width: '20rem', boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)" }}>
+                    <ToDoForm onSubmit={this.addtoList} />
+                    <ul class="list-group">
+                        <ToDo todolist={this.state.todos} onChildDeleteClick={this.clickDelete} onChildEditClick={this.clickEdit} />
+                    </ul>
+                </Card>
             </div>
         )
     }
