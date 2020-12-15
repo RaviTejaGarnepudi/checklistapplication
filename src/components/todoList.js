@@ -13,13 +13,13 @@ class ToDoList extends Component {
     }
 
     clickDelete = (id) => {
-        if (window.confirm('Are you sure you wish to delete this todo item?')) {
+        if (window.confirm('Are you sure you wish to delete this item?')) {
             this.setState({ todos: this.state.todos.filter(x => x.id !== id) });
         }
     }
 
     clickEdit = (index, id) => {
-        const value = prompt("Please update your todo item:", this.state.todos[index].text);
+        const value = prompt("Please update your item:", this.state.todos[index].text);
         if (value === null) {
             return; //break out of the function early
         }
@@ -37,7 +37,7 @@ class ToDoList extends Component {
             <div className="container">
                 <Card style={{ width: '20rem', boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)" }}>
                     <ToDoForm onSubmit={this.addtoList} />
-                    <ShareButton title="My Great Page" text={this.state.todos.text} type="submit" url="http://www.greatpage.com" />                        
+                    <ShareButton title="Share" text={this.state.todos.text} content={this.state.todos.text} />                        
                     <ul class="list-group">
                         <ToDo todolist={this.state.todos} onChildDeleteClick={this.clickDelete} onChildEditClick={this.clickEdit} />
                     </ul>
