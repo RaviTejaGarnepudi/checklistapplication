@@ -34,10 +34,9 @@ class ToDoList extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div>
                 <Card style={{ width: '20rem', boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)" }}>
                     <ToDoForm onSubmit={this.addtoList} />
-                    <ShareButton title="Share" text={this.state.todos.text} content={this.state.todos.text} />                        
                     <ul class="list-group">
                         <ToDo todolist={this.state.todos} onChildDeleteClick={this.clickDelete} onChildEditClick={this.clickEdit} />
                     </ul>

@@ -8,8 +8,8 @@ class ToDo extends Component {
                 <li className="list-group-item" key={todo.id} style={{ width: '20rem'}}>
                     {todo.text}
                    <span style={{alignContent:'end'}}> 
-                        <MdEdit style={{cursor : 'pointer', float : 'right'}} onClick={() => this.props.onChildEditClick(index, todo.id)} />
-                        <MdDelete style={{cursor : 'pointer', float : 'right'}} onClick={() => this.props.onChildDeleteClick(todo.id)} />
+                        <MdEdit style={{cursor : 'pointer', float : 'right', alignContent:'end'}} onClick={() => this.props.onChildEditClick(index, todo.id)} />
+                        <MdDelete style={{cursor : 'pointer', float : 'right', alignContent:'end'}} onClick={() => this.props.onChildDeleteClick(todo.id)} />
                     </span>
                 </li>
             )
