@@ -34,7 +34,7 @@ class ToDoList extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <Card style={{ width: '20rem', boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)" }}>
                     <ToDoForm onSubmit={this.addtoList} />
                     <ul class="list-group">
